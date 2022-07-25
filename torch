@@ -7,6 +7,13 @@ os.mkdir('/content/dataset')    #폴더 생성
 USE_CUDA = torch.cuda.is_available()                    #torch.device() 설정
 DEVICE = torch.device('cuda' if USE_CUDA else 'cpu')
 
+## colab에 pakage 설치 konlpy import 하기 
+!apt-get update
+!apt-get install g++ openjdk-8-jdk 
+!pip install konlpy JPype1-py3
+!bash <(curl -s https://raw.githubusercontent.com/konlpy/konlpy/master/scripts/mecab.sh)
+
+
 
 def preprocessing_datacopy(base_path, file_name):
     os.mkdir('/content/dataset')
