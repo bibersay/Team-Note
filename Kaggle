@@ -18,5 +18,9 @@ drive.mount('/gdrive')
 # Permission Warning 방지
 !chmod 600 ~/.kaggle/kaggle.json
 #!kaggle datasets download -d arnaud58/selfie2anime  #kaggle API url 복사
+#! + kaggle API url 복사
 
+# 파일 압축 해제
+!unzip /content/selfie2anime.zip
+!unzip pat + file_name.zip
 ####################################################################################
