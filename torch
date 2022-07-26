@@ -32,6 +32,7 @@ drive.mount('/gdrive')
 accidents = pd.read_csv('path + file_name.xxx', delimiter='\t')
 
 #google drive로 file upload
+from google.colab import drive
 data.to_csv('path + file_name.xxx')
 
 
