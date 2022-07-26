@@ -3,17 +3,16 @@
 Kaggle dataset 가져오기
 """
 
-
 !pip install kaggle
 from google.colab import files, drive
 
 #구글 드라이브 마운트
 drive.mount('/gdrive')
 
-#kaggle json 파일 가져오기
+#kaggle json 파일 가져오기 (dir 생성, json 가져오기)
 %cd /gdrive/MyDrive/kaggle
-!mkdir -p ~/.kaggle
-!cp kaggle.json ~/.kaggle/
+!mkdir -p /content/kaggle
+!cp kaggle.json /content/kaggle/
 
 # Permission Warning 방지
 !chmod 600 ~/.kaggle/kaggle.json
@@ -24,3 +23,4 @@ drive.mount('/gdrive')
 !unzip /content/selfie2anime.zip
 !unzip pat + file_name.zip
 ####################################################################################
+
