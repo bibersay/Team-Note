@@ -13,6 +13,26 @@ DEVICE = torch.device('cuda' if USE_CUDA else 'cpu')
 !pip install konlpy JPype1-py3
 !bash <(curl -s https://raw.githubusercontent.com/konlpy/konlpy/master/scripts/mecab.sh)
 
+# PC -> colab으로  file upload
+from google.colab import files
+uploaded = files.upload()
+for fn in uploaded.keys():
+  print('User uploaded file "{name}" with length {length} bytes'.format(
+      name=fn, length=len(uploaded[fn])))
+      
+
+#colab -> PC로  file download
+from google.colab import files
+files.download('file_name.xxx)
+
+#google drive에서 file download
+from google.colab import drive
+drive.mount('/gdrive')
+!ls /gdrive/My\ Drive/Colab\ Notebooks/data
+accidents = pd.read_csv('path + file_name.xxx', delimiter='\t')
+
+#google drive로 file upload
+data.to_csv('path + file_name.xxx')
 
 
 def preprocessing_datacopy(base_path, file_name):
