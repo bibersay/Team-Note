@@ -1,0 +1,57 @@
+import requests
+import json
+from bs4 import BeautifulSoup
+import lxml
+import pandas as pd
+import numpy as np
+import time
+"""
+국민신문고 크롤링
+input : url, name, key 
+output : DataFrame['title', 'content'] 
+"""
+MAX_PAGE_LENGTH = 
+
+result = pd.DataFrame()
+for k in range(1,MAX_PAGE_LENGTH):    # 최대 page 설정
+    url = 'https://www.epeople.go.kr/nep/prpsl/opnPrpl/opnpblPrpslList.npaid?pageIndex='+str(k) # 국민신문고 url
+    response = requests.get(url)
+    html = response.text
+    soup = BeautifulSoup(html, 'lxml')
+    links = soup.select('td > a')       # link url parsing (글 목록의 url 가져오기)
+    count = 0
+    names , keys = [],[]
+    for i,lin in enumerate(links):    # 글 하나의 url 가져오기
+        if i >= 10:                   # 최대 목록 10개
+            break
+            
+        """
+        게시글 url이 순차적으로 되어있지 않아서 java:onclick 함수가 전달하는 인자를 가져온후 url 변경(name, key -> url 완성)
+        """
+        name, key= lin.get('onclick').split("'")[1], lin.get('onclick').split("'")[3]   
+        names.append(name)
+        keys.append(key)    
+        url = 'https://www.epeople.go.kr/nep/prpsl/opnPrpl/opnpblPrpslView.npaid?prplRqstNo='+names[i]+'&instRcptSn='+keys[i]
+
+        
+        res = requests.get(url)
+        soup2 = BeautifulSoup(res.text,'lxml')
+        title = soup2.find('div', class_ ='cellBig').text.strip()       # title 가져오기
+        contexts = soup2.select('div.b_conItem > div.b_cont')           # content 가져오기
+        data = []                                 
+        # print(contexts)
+        for content in contexts:                                         # 글이 여러 문단으로 구분되어있어서 한개의 문단으로 합치는 과정이 필요
+            data.append(content.text.strip())
+        data = ''.join(data)
+        if len(data) != 0:                                                # pandas DataFrame으로 만들기
+            df1 = pd.DataFrame({'title' : title,                          
+                            'content' : [data]
+            })
+
+            result = pd.concat([result, df1])
+            result.index = np.arange(len(result))
+        
+        if i %4 == 0:                                                   # 국민신문고 접속횟수가 많을경우 접속 차단되어 sleep 을 
+            print(f"sleep minute. count : {str(i)}, local time : {time.strftime('%Y-%m-%d', time.localtime(time.time()))}, {time.strftime('%X', time.localtime(time.time()))}, data length : {str(len(result))} ")
+
+print(df1)
