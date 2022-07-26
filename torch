@@ -19,11 +19,17 @@ uploaded = files.upload()
 for fn in uploaded.keys():
   print('User uploaded file "{name}" with length {length} bytes'.format(
       name=fn, length=len(uploaded[fn])))
-      
+
+# colab file -> pandas data 변환
+import pandas as pd
+data = pd.read_csv('./data.tsv', sep='\t')
+data = pd.read_csv('path + file_name.csv', sep='\t',  lineterminator='\n')
+data = pd.read_csv('path + file_name.csv',  lineterminator='\n')
 
 #colab -> PC로  file download
 from google.colab import files
 files.download('file_name.xxx)
+
 
 #google drive에서 file download
 from google.colab import drive
@@ -31,9 +37,11 @@ drive.mount('/gdrive')
 !ls /gdrive/My\ Drive/Colab\ Notebooks/data
 accidents = pd.read_csv('path + file_name.xxx', delimiter='\t')
 
+
 #google drive로 file upload
 from google.colab import drive
 data.to_csv('path + file_name.xxx')
+
 
 
 def preprocessing_datacopy(base_path, file_name):
