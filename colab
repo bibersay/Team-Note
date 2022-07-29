@@ -58,3 +58,7 @@ function ClickConnect(){
     document.querySelector("colab-toolbar-button#connect").click() 
 }
 setInterval(ClickConnect, 60 * 1000)
+
+######################################################
+# colab에서 단일 file download
+!curl -L -O url       #-L auto redirection -O use same filename
