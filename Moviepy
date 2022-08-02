@@ -1,0 +1,36 @@
+
+### 참고 출처 : https://chacha95.github.io/2019-10-24-Movipy/
+
+!pip install moviepy
+!pip install imageio==2.4.1
+!pip install facenet_pytorch
+
+from moviepy.editor import VideoFileClip, concatenate_videoclips
+
+###############################################################
+# file path로 인스턴스 만들기
+video_clip = VideoFileClip(video_path)
+
+###############################################################
+# duration, audio 속성
+video_clip_duration_time = video_clip.duration
+video_clip_audio = video_clip.audio
+video_clip_fps = video_clip.fps
+
+###############################################################
+# interval로 subclip 추출
+video_subclip = video_clip.subclip(start_time, end_time)
+
+###############################################################
+# 특정 시간의 image 추출
+image = video_subclip.get_frame(10) # extracting frame of specific time
+
+###############################################################
+# 여러 clips 합치기
+final_clip = concatenate_videoclips([clip1,clip2,clip3])
+
+###############################################################
+# video file로 만들기
+final_clip.write_videofile("file_name.mp4")
+final_clip.write_videofile(file_path)
+    
