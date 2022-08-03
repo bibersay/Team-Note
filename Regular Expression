@@ -1,0 +1,42 @@
+출처 : https://nachwon.github.io/regular-expressions/
+
+import re
+pattern_object = re.compile('정규표현식', compile_options)   
+pattern_object.search('source')
+
+# 사용방법 -1 
+pattern_object = re.compile('apple')   
+pattern_object.search('I like apple!')
+
+# 사용방법 -2
+str = re.search("apple", "I like apple!")
+
+# compile 옵션
+# re.S (dot all), re.I (ignore space), re.M (multi line), re.X (verbose)
+
+
+# 패턴객체 method
+# 모든 매치를 리스트로 반환
+pattern_object.findall(src4)
+
+# 모든 매치를 iterator로 변환
+pattern_object.finditer(src4)
+
+#시작부터 일치하는 패턴을 match 객체로 반환
+match_object = pattern_object.match(src1)
+
+# 처음으로 일치하는 패턴을 match 객체로 반환
+match_object = pattern_object.search(src2)
+
+# match_object의 method
+match_object.group()    # 매치된 문자열 출력
+match_object.start()    # 시작 인덱스
+match_object.end()      # 종료 인덱스
+match_object.span()     # 인덱스 스팬
+
+# Meta characters
+. ^ $ * + ? \ | () {} []
+
+\d \D \w \W \s \S \b \B \A \Z 
+
+[^] [.] *? +? ?? {1,3} {1,} 'hello(?=world)'
