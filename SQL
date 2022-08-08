@@ -1,0 +1,9 @@
+참고 : https://kimvelyy.tistory.com/5
+https://extbrain.tistory.com/51?category=270532
+
+keyword : SELECT, FROM, WHERE
+
+SELECT NAME, AGE, PHONE   # SELECT col 명, 전체는 * 사용
+FROM PROFILE              # FROM table 명
+WHERE NAME = 'ANNE'       # WHERE 조건식 >= == ... 
+
