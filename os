@@ -30,6 +30,7 @@ cur_dir = os.getcwd()
 os.path.split(cur_dir) # 경로 분리(상위, 최하위)
 os.path.dirname(cur_dir) # 상위 디렉토리 얻기
 os.path.basename(cur_dir) # 최하위 디렉토리 얻기
+os.path.join(os.getcwd(),file_name) # 경로 합치기
 
 ##########################################################
 # 최상위 디렉토리로 올라가기
@@ -50,3 +51,17 @@ for (root, dirs, files) in os.walk(root_dir):
     if len(files) > 0:
         for file_name in files:
             print("file: " + file_name)
+            
+##########################################################
+# 경로 합치기 사용
+
+
+
+
+
+
+
+
+
+
+
