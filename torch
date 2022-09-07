@@ -39,6 +39,23 @@ print(type(tf_img), tf_img, type(tf_np_img), tf_np_img)
 
 
 #################################################
+# ImageNette 다운
+
+dataset_url = 'https://s3.amazonaws.com/fast-ai-imageclas/imagenette-160.tgz'
+db = download_url(dataset_url,'.')
+# Extract from archive
+with tarfile.open('./imagenette-160.tgz', 'r:gz') as tar:
+    tar.extractall(path='./data')
+    
+# Look into the data directory
+data_dir = './data/imagenette-160'
+print(os.listdir(data_dir))
+classes = os.listdir(data_dir + "/train")
+print(classes)
+#################################################
+
+
+
 
 def preprocessing_datacopy(base_path, file_name):
 """
