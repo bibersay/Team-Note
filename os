@@ -36,3 +36,17 @@ os.path.basename(cur_dir) # 최하위 디렉토리 얻기
 while os.path.basename(cur_dir):    
   cur_dir = os.path.dirname(cur_dir)
   print(cur_dir) 
+  
+##########################################################
+# os.walk 사용
+
+root_dir = "./test/"
+for (root, dirs, files) in os.walk(root_dir):
+    print("# root : " + root)
+    if len(dirs) > 0:
+        for dir_name in dirs:
+            print("dir: " + dir_name)
+
+    if len(files) > 0:
+        for file_name in files:
+            print("file: " + file_name)
