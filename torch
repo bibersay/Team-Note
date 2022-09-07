@@ -15,6 +15,30 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 A.load_state_dict(torch.load('A.pth', map_location=device))   
 
 #################################################
+# PIL image, tensor, numpy 변환
+from PIL import Image
+from torchvision.transforms import ToTensor, ToPILImage
+import numpy
+import matplotlib.pyplot as plt
+
+
+image = Image.open(file.jpg)    # PIL image open        # (0~255), (H,W,C)
+np_image = numpy.array(image)   # numpy array           # (0~255), (H,W,C)
+plt.imshow(image)               # PIL image show
+plt.show()
+
+tf_tensor = torchvision.transfroms.ToTensor()   # generate object       # (0~1), (C,H,W)
+tf_img = tf_tensor(image)                       # convert from pil to tensor
+tf_np_img = tf_tensor(np_image)                 # convert from pil to tensor
+print(type(tf_img), tf_img,type(tf_np_img), tf_np_img)
+
+tf_pil = torchvision.transfroms.ToPILImage()    # generate objec
+tf_img = tf_pil(image)                          # convert from tensor to pil
+tf_np_img = tf_pil(tf_np_img)                   # convert from tensor to pil
+print(type(tf_img), tf_img, type(tf_np_img), tf_np_img)
+
+
+#################################################
 
 def preprocessing_datacopy(base_path, file_name):
 """
