@@ -1,0 +1,15 @@
+Use pdb built-in breakpoint function according to below commands :
+
+import pdb; 
+pdb.set_trace()
+
+Command Description
+list Show the current location in the file
+h(elp) Show a list of commands, or find help on a specific command
+q(uit) Quit the debugger and the program
+c(ontinue) Quit the debugger, continue in the program
+n(ext) Go to the next step of the program
+Repeat the previous command
+p(rint) Print variables
+s(tep) Step into a subroutine
+r(eturn) Return out of a subroutine
