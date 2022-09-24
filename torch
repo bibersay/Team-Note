@@ -121,6 +121,24 @@ def run_demo(demo_fn, world_size):
              nprocs=world_size,
              join=True)
    
+#################################################
+# Profile
+from torch.profiler import profile, record_function, ProfilerActivity
+with profile(activities = [ProfilerActivity.CPU],
+            my_schedule = schedule(
+                warmup=1,
+                active=3,
+                repeat=2),
+                record_shapes = True) as prof:
+
+    with record_function('model_inference'):
+        train(train_dataloader, model, optimizer, loss_fn, epochs) # 연산 실행
+        
+print(prof.key_averages().table(sort_by = 'self_cpu_time_total', row_limit = 5))
+prof.export_chrome_trace('trace.json')  # chrome://trace 에서 GUI로 분석
+
+
+
 
 #################################################
 def preprocessing_datacopy(base_path, file_name):
