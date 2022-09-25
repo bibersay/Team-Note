@@ -4,7 +4,7 @@
 ![image](https://user-images.githubusercontent.com/81370878/192134955-8d7139c2-79c2-4f4c-8342-2fb560b4100c.png)
 
 ### 이모지 만들기
-![이모지 sheet](https://www.webfx.com/tools/emoji-cheat-sheet/)
+[이모지 sheet](https://www.webfx.com/tools/emoji-cheat-sheet/)
 
 ### 배지 만들기
-![배지 url](https://shields.io/)
+[배지 url](https://shields.io/)
