@@ -8,4 +8,4 @@
 
 ### 배지 만들기
 [배지 url](https://shields.io/)
-!(https://img.shields.io/badge/license-MIT-brightgreen)
+![badge](https://img.shields.io/badge/license-MIT-brightgreen)
