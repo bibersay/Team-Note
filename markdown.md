@@ -9,3 +9,8 @@
 ### 배지 만들기
 [배지 생성](https://shields.io/)
 ![badge](https://img.shields.io/badge/license-MIT-brightgreen)
+
+### 표 만들기
+A|B|C
+---|---|---
+1|2|3
