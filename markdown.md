@@ -19,5 +19,5 @@ A|B|C
 ### code 넣기
 ```python
 def code_make():
-  return print('code')
+  print('code')
 ```
