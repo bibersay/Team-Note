@@ -15,3 +15,9 @@ A|B|C
 ---|---|---
 1|2|3
 ㄱ|ㄴ|ㄷ
+
+### code 넣기
+```python
+def code_make():
+  return print('code')
+```
